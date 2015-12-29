@@ -1,0 +1,656 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#radioButtonsForm {
+    position: absolute; 
+    z-index: 1; 
+    background-color: #3d3d3d; 
+    color:#fff; 
+    border-radius: 5px; 
+    border-style: solid;
+    border-width: 1px;
+    border-color:#E6E6E6;
+    font: 16px sans-serif;
+}
+.line {
+    stroke: #000;
+    stroke-width: 2px;
+}
+
+.button {
+    top:15px;
+    left:15px;
+    position: absolute;
+}
+
+.lineStaticAttack {
+    fill: none;
+    stroke: #ff6600;
+}
+
+.lineInstantiateAttack {
+    fill: none;
+    stroke: #BF0000;
+}
+.lineInstantiateOnGoingAttack {
+    fill: none;
+    opacity: 0.3;
+    stroke: #f00;
+    cursor: default;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.lineInstantiateOnGoingAttack:hover {
+    opacity: 1;
+}
+.perimeterArc{
+    fill: none;
+    stroke: #CC7A29;
+
+}
+.socialNetworkArc{
+    fill: none;
+    stroke: #C33E00;
+}
+.linePreviewAttack {
+    fill: none;
+    stroke: #ff6600;
+    stroke-width: 3px;
+}
+
+#preview{
+    fill:#ff6600;
+}
+
+#lineStaticAttackMarker{
+    fill:#ff6600;
+    strokeWidth: 3px;
+}
+
+#lineInstantiateOnGoingAttackMarker{
+    fill:#f00;
+}
+
+#lineInstantiateAttackMarker{
+    fill:#BF0000;
+}
+
+#perimeterArcMarker{
+    fill: #CC7A29;
+}
+#socialNetworkArcMarker{
+    fill: #C33E00;
+}
+
+.overlayedSVG{
+    position: absolute;
+}
+
+.graph{
+    margin: 50px auto 0 auto;
+    border: 2px solid blue;
+}
+
+.node text {
+    pointer-events: none;
+    font: 10px sans-serif;
+    color: #000;
+}
+
+.textPreview{
+    cursor: default;
+    font: 12px sans-serif;
+    fill: #fff;
+}
+
+html, #map {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.arc path {
+    stroke: #fff;
+}
+
+.arc text {
+    fill: #fff;
+    font: 13px sans-serif;
+}
+
+.textAttackID {
+    color: #fff;
+}
+
+.leftMenu {
+    z-index: 3;
+    cursor: default;
+}
+.rightMenu{
+    width: 350px;
+    height: 100%;
+    z-index: 3;
+    cursor: default;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+#rightMenuPrompt{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    font: 17px;
+    background: #F9EC89;
+    padding: 5px;
+    border-radius: 7px;
+    display: none;
+}
+#rightMenuContainer{
+    width: 100%;
+    height: 100%;
+}
+.flexcontainer {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.flexfill {
+    -webkit-flex: 1 1 0%;
+    -moz-flex: 1 1 0%;
+    -ms-flex: 1 1 0%;
+    flex: 1 1 0%; 
+}
+
+#responsePlanDiv{
+    background-color: #3D3D3D;
+}
+.topMenu{
+    z-index: 1;
+}
+.bottomMenuContainer {
+    z-index: 2;
+}
+.bottomMenu{
+    white-space:nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.attackPreview {
+    z-index: 1;
+    display: inline-block;
+    border: 2px solid white;
+    background-color: #3d3d3d;
+    border-radius: 8px;
+    font: 16px sans-serif;
+}
+.menuLabel{
+    margin: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:#E6E6E6;
+    cursor: pointer;
+}
+#rightMenuLabel {
+    background-image:url(../images/attackResponse.svg);
+}
+#leftMenuLabel {
+    background-image:url(../images/subnets.svg);
+}
+#bottomMenuLabel {
+    background-image:url(../images/ap.svg);
+}
+#topMenuLabel {
+    background-image:url(../images/parallelCoordinates.svg);
+}
+
+.tableAttack {
+    overflow-x: hidden !important;
+    position: absolute;
+    font: 13px sans-serif;
+    cursor: pointer;
+}
+#responsePlanDiv, #buttonsDiv, #donutChartDiv{
+    margin: 1px;
+    padding:5px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:#E6E6E6;
+}
+#parallelCoordinates{
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:#E6E6E6;
+}
+#responsePlanHeader{
+    height: 23px;
+    text-align: center;
+}
+#responsePlanBody{
+}
+#responsePlanHeader p{    
+    font-weight: bold;
+    font: 16px sans-serif;
+    color:white;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+}
+#barrierDetailsArea{
+}
+#barrierDetailsHeader{
+}
+
+#barrierDetailsBodyContainer{
+    flex: 1 1 auto; 
+    border-radius: 5px;
+    border: 1px dotted white;
+    overflow-x: hidden !important;
+    overflow-y: auto;
+    position: relative;
+}
+#barrierDetailsBody{
+    overflow-x: hidden !important;
+    overflow-y: auto;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+#responsePlanSummary{
+    width: 45%;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+    color: white;
+}
+#responsePlanSummary text{
+    display: block;  
+}
+#responsePlanSummary text:nth-of-type(1){
+    font: 14px sans-serif;
+    font-weight: bold;
+}
+#responsePlanSummary text:nth-of-type(2){
+    font: 40px sans-serif;
+    font-weight: bold;
+    margin: 5px 0px;
+}
+#responsePlanSummary text:nth-of-type(4){
+    font: 15px sans-serif;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+#responsePlanSummary text:nth-of-type(3), text:nth-of-type(5), text:nth-of-type(6){
+    font: 12px sans-serif;
+}
+#responsePlanData{
+    height: 100%;
+    width: 55%;
+    display: table-cell;
+    position: relative;
+}
+#responsePlanData text{
+    display: block;
+    font: 11px sans-serif;
+    color: white;
+    margin-top: 4px;
+    white-space: nowrap
+}
+#responsePlanData select, .barrierModeSwitch{
+    height: 30px;
+    width: 100%;
+    margin-top: 6px;
+    background-color: #606060;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #FFF;
+    color: white;
+}
+.barrierModeSwitch{
+    width: 90px;
+    height: 30px;
+}
+#barrierModeSwitchStructureDiv text, #barrierModeSwitchStatusDiv text{
+    font: 12px sans-serif;
+    display: inline;
+    margin: 0px 5px;
+}
+#responsePlanDataButtonDiv, #responsePlanDataButtonDivProactive{
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+    height: 25px;
+    width: 100%;
+}
+
+#barrierDetailsHeaderResponsePlanContainer{
+    display: table;
+    width: 100%;
+    height: 170px;
+    border-bottom: 1px dotted #FFF;
+}
+#barrierDetailsHeaderAllBarriersContainer{
+    width: 100%;
+    max-width: 100%;
+    display: none; 
+    overflow-x: auto;
+    border-bottom: solid 1px #8A8A8A; 
+}
+.barrierGroupDiv{
+    background-color: #6E6E6E;
+    border-radius: 3px;
+    padding: 7px;
+    margin: 0px 5px;
+    transition: all 0.1s;
+}
+.barrierGroupDiv:hover{
+    background-color: #ABABAB;
+}
+.SVGforBarrierDiv{
+    background-color: rgb(212, 187, 0);
+    border-radius: 3px;
+    margin: 0px 2px;
+    transition: all 0.1s;
+}
+.SVGforBarrierDiv svg{
+    padding: 4px;
+}
+.flexRowCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*--------------start: barrier state filter----------------*/
+#barrierDetailsHeaderBarrierContainer{
+    height: 100px;
+    width: 100%;
+    display: table;
+    border-bottom: solid 1px #8A8A8A; 
+}
+#barrierDetailsHeaderBarrierSummary{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    top: 0px;
+    display: table-cell;
+    vertical-align: middle;
+}
+#barrierDetailsHeaderBarrierSummary span{
+    display: inline-block;
+    width: 31%;
+    height: 100%;
+    position: relative;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #FFF;
+}
+#barrierDetailsHeaderBarrierSummary span > div{
+    display: table;
+    height: 100%;
+}
+#barrierDetailsHeaderBarrierSummary span svg{
+    height: 20px;
+    width: 20px;
+    background-image:url(../images/preview.svg);
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+#barrierDetailsHeaderBarrierSummary span svg:hover{
+    border: 2px solid #cccccc;
+}
+#barrierDetailsHeaderBarrierSummary span input{
+    height: 18px;
+    width: 18px;
+}
+.barrierDetailsHeaderBarrierSummaryValue {
+    font: 14px sans-serif;
+    color: white;
+}
+.barrierDetailsHeaderBarrierSummaryPercent {
+    display: block;
+    font: 24px sans-serif;
+    color: white;
+    font-weight: bold;
+}
+.barrierDetailsHeaderBarrierSummaryTitle {
+    font: 13px sans-serif;
+    color: white;
+    font-weight: bold;
+}
+/*--------------end: barrier state filter----------------*/
+
+/*--------------start: barrier type filter----------------*/
+#barrierTypeFilterContainer{
+    height: 100px;
+    width: 100%;
+    display: table;
+
+}
+#barrierTypeFilter{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    top: 0px;
+    display: table-cell;
+    vertical-align: middle;
+}
+#barrierTypeFilter span{
+    display: inline-block;
+    width: 31%;
+    height: 100%;
+    position: relative;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #FFF;
+}
+#barrierTypeFilter span > div{
+    display: table;
+    height: 100%;
+}
+#barrierTypeFilter span svg{
+    height: 20px;
+    width: 20px;
+    background-image:url(../images/preview.svg);
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+#barrierTypeFilter span svg:hover{
+    border: 2px solid #cccccc;
+}
+#barrierTypeFilter span input{
+    height: 18px;
+    width: 18px;
+}
+.barrierTypeFilterValue {
+    font: 14px sans-serif;
+    color: white;
+}
+.barrierTypeFilterPercent {
+    display: block;
+    font: 24px sans-serif;
+    color: white;
+    font-weight: bold;
+}
+.barrierTypeFilterTitle {
+    font: 13px sans-serif;
+    color: white;
+    font-weight: bold;
+}
+/*--------------end: barrier type filter----------------*/
+.detailsItemDiv{
+    height: 20px;
+    width: 100%;
+    border-bottom: 1px solid rgb(104, 104, 104);
+    position: relative;
+}
+.detailsItemHeader{
+    height: 20px;
+    width: 100%;
+    cursor: pointer;
+    font: 14px sans-serif;
+    fill:white;
+    box-sizing: border-box;
+    -moz-transition: all 0.1s;
+    -o-transition: all 0.1;
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s;
+    font-weight: 400;
+    position: relative;
+
+}
+.detailsItemHeader:hover{
+    background-color: #cccccc;
+}
+.detailsItemBody {
+    height: 100px;
+    width: 100%;
+    display: none;
+}
+.detailsItemBodySummary{
+    width: 45%;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font: 12px sans-serif;
+    color: white;
+    fill:white;
+}
+.detailsItemBodySummary text:nth-of-type(2), text:nth-of-type(3){
+    font: 11px sans-serif;
+    color: white;
+}
+.detailsItemBodySummary text:nth-of-type(2){
+    margin-top: 5px;
+}
+.detailsItemBodyMitigationData{
+    height: 100%;
+    width: 55%;
+    display: table-cell;
+    position: relative;
+}
+.detailsItemBodyMitigationData text{
+    display: block;
+    font: 11px sans-serif;
+    color: white;
+    margin-top: 3px;
+    white-space: nowrap
+}
+.detailsItemBodyMitigationData div{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 25px;
+    width: 130px;
+}
+.detailsItemBodyMitigationData button, 
+.attackPreview button, 
+#buttonsDiv button,
+#barrierDetailsHeaderResponsePlanContainer button{
+    height: 25px;
+    width: 50px;
+    background-color: #606060;
+    border: 2px #FFF solid;
+    border-radius: 10px;
+    margin-left: 3px;
+    color: white;
+    cursor:pointer;
+}
+#responsePlanDataButtonDiv button, #responsePlanDataButtonDivProactive button{
+    width: 85px;
+}
+.detailsItemBodyMitigationData button:disabled, 
+.attackPreview button:disabled, 
+#buttonsDiv button:disabled,
+#barrierDetailsHeaderResponsePlanContainer button:disabled{
+    background-color: #cccccc;
+    color: black;
+}
+.detailsItemBodyMitigationData button:active , 
+.attackPreview button:active , 
+#buttonsDiv button:active ,
+#barrierDetailsHeaderResponsePlanContainer button:active {
+    background-color: #8A8A8A;
+}
+.detailsItemBodyMitigationData button:focus , 
+.attackPreview button:focus , 
+#buttonsDiv button:focus ,
+#barrierDetailsHeaderResponsePlanContainer button:focus,
+#responsePlanSourceSelect:focus {
+    outline:0;
+}
+#buttonsDiv{
+    white-space: nowrap;
+}
+.barrierPie path{
+    /*    fill: grey;*/
+    stroke: #000;
+    stroke-width: 1px;
+    opacity: 0;
+    cursor: pointer;
+    display: none;
+}
+
+.background path {
+    fill: none;
+    stroke: #777;
+    shape-rendering: crispEdges;
+}
+
+.foreground path {
+    fill: none;
+    stroke: #2BFE1E;
+    cursor:pointer;
+}
+
+.brush .extent {
+    fill-opacity: .3;
+    stroke: #fff;
+    shape-rendering: crispEdges;
+}
+
+.axis line,
+.axis path {
+    fill: none;
+    stroke: white;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    text-shadow: 0 2px 4px #3d3d3d, 2px 0 4px #3d3d3d, 0 -2px 4px #3d3d3d, -2px 0 4px #3d3d3d;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+#parallelCoordinates svg {
+    font: 12px sans-serif;
+    fill: white
+}
